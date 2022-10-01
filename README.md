@@ -5,6 +5,8 @@
 * Use AJAX technology to create simple books characters app
 * Use open API https://anapioficeandfire.com/ for getting data from a server
 * Сlick on the left side character item load data from the server and show them on right side
+* Select first character from list by default
+* Implement httRequest(type, url, option) function for making request to api  
 * Implement infinite scroll functionality for loading additional data about characters
 
 ![Screenshot 2021-10-26 at 22 07 03](https://user-images.githubusercontent.com/10829855/138951205-5af1c7b3-246c-4f07-b03b-d486b5c5d20a.png)
