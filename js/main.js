@@ -1,6 +1,7 @@
-let number;
+let number,characterList='';
 // cucle for create the list with characters
-for(let i=1;i<=2138;i++) $('.character-list').append(`<li class='${i}'>Character ${i}</li>`);
+for(let i=1;i<=2138;i++) characterList+=`<li class='${i}'>Character ${i}</li>`;
+document.querySelector('.character-list').innerHTML=(characterList)
 //click on list with character
 document.querySelector('.character-list ').onclick=(event)=>{
     number=parseInt((event.target.className));
