@@ -1,0 +1,44 @@
+@import "reset";
+@import "variables";
+//@font-face {
+//    font-family: 'Cargo';
+//    src: url("../fonts/cargo.ttf");
+//   }
+main{
+  display: flex;
+}
+.character-panel{
+  background-color: #464646;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  &_id{
+    width: 400px;
+    color: whitesmoke;
+    height: 40px;
+    font-size: 24px;
+    text-align: center;
+  }
+  &_id:hover{
+    background-color: gray;
+    cursor: pointer;
+  }
+}
+.character-data{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  position: fixed;
+  margin-left: 400px;
+  .name{
+    margin: 20px 30px 100px auto;
+    font-size: 48px;
+  }
+  .data{
+    margin: 20px auto auto auto;
+    width: 400px;
+    text-align: left;
+    word-wrap: break-word;
+  }
+}
