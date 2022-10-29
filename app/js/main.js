@@ -1,14 +1,34 @@
+
 $(document).ready(function(){
 let characterArray='';
-
+let def;
 for(let i=1;i<=2138;i++) {
-  characterArray+=`<li id='${i}' class="character-panel_id">Character ${i}</li>`;
+    (function() {
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET",`https://anapioficeandfire.com/api/characters/${i}` , false);
+      xhr.onreadystatechange = function() {
+        if (this.readyState==4&&this.status==200) {
+          let data = JSON.parse(xhr.responseText)
+          if(i==1)
+          def = data;
+          if(data.name!='')
+          characterArray +=`<li id='${i}' class="character-panel_id">Character ${i} (${data.name}) </li>`;
+          else
+            characterArray +=`<li id='${i}' class="character-panel_id">Character ${i} (No name) </li>`;
+        }
+      }
+      xhr.send();
+    })();
 }
   $(".characters").html(characterArray)
-    $(".character-panel_id").click(function (){
-        let id = $(this).attr("id");
-        const xhr= new XMLHttpRequest();
+  HttRequest(def)
+  $("#1").addClass("active")
 
+    $(".character-panel_id").click(function (){
+      $(".character-panel_id").removeClass("active")
+        let id = $(this).attr("id");
+        $(this).addClass("active")
+      const xhr = new XMLHttpRequest();
         xhr.onreadystatechange=function(){
           if (this.readyState==4&&this.status==200){
             HttRequest(JSON.parse(this.responseText))
@@ -40,5 +60,4 @@ function HttRequest(data){
                  <li><span>Played By: </span>${data.playedBy}</li>
     `)
   }
-
 
