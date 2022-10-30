@@ -1,18 +1,38 @@
 @import "reset";
 @import "variables";
-//@font-face {
-//    font-family: 'Cargo';
-//    src: url("../fonts/cargo.ttf");
-//   }
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 main{
   display: flex;
+  font-family: 'Roboto Slab', serif;
 }
 .character-panel{
   background-color: #464646;
   width: 400px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding-top: 20px;
+  &__navigation{
+    display: flex;
+    .prev{
+      margin: 10px auto auto auto;
+      border-radius: 10px;
+      height: 90px;
+      width: 90px;
+      font-size: 24px;
+      font-weight: 900;
+      font-family: 'Roboto Slab', serif;
+    }
+    .next{
+      margin: 10px auto auto auto;
+      border-radius: 10px;
+      height: 90px;
+      width: 90px;
+      font-size: 24px;
+      font-weight: 900;
+      font-family: 'Roboto Slab', serif;
+    }
+  }
   &_id{
     width: 400px;
     color: whitesmoke;
