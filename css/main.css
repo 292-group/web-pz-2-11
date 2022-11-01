@@ -26,6 +26,10 @@ body {
   font-size: 30px;
 }
 
+.active {
+  background-color: aliceblue;
+}
+
 .sov-character li:hover {
   background-color: aliceblue;
 }

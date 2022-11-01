@@ -6,8 +6,19 @@ for (let i = 1; i <= 15; i++) {
   block.className = (`${i}`);
   document.querySelector('.sov-character-list').appendChild(block);
 }
+
+let first = document.getElementsByClassName('1').item(0);
+clickEvent(first);
+
 document.querySelector('.sov-character-list ').onclick = (event) => {
-  number = parseInt((event.target.className));
+  clickEvent(event.target);
+}
+
+function clickEvent(element) {
+  if (number)
+    document.getElementsByClassName(`${number - 50}`).item(0).classList.remove('active');
+  number = parseInt((element.className));
+  element.classList.add('active');
   number = `${number + 50}`;
 
   httpRequest('GET', `https://anapioficeandfire.com/api/characters/${number}`)
