@@ -16,9 +16,8 @@ body {
 
 .sov-character {
   padding-top: 30px;
-  grid-area: sov-character;
+  grid-area: character;
   background-color: rgb(45, 59, 78);
-  height: 100%;
 }
 
 .sov-character li {
@@ -26,11 +25,11 @@ body {
   font-size: 30px;
 }
 
-.active {
+.sov-character li:hover {
   background-color: aliceblue;
 }
 
-.sov-character li:hover {
+.active {
   background-color: aliceblue;
 }
 
@@ -57,4 +56,12 @@ body {
 
 span {
   font-weight: bold;
+}
+
+.nav_bar {
+  overflow: auto;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
