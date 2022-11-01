@@ -1,29 +1,35 @@
 let number;
 let block;
-for(let i=1;i<=15;i++){
-    block=document.createElement('li');
-    block.innerHTML=(`Character ${i}`);
-    block.className=(`${i}`);
-    document.querySelector('.sov-character-list').appendChild(block);
+for (let i = 1; i <= 15; i++) {
+  block = document.createElement('li');
+  block.innerHTML = (`Character ${i}`);
+  block.className = (`${i}`);
+  document.querySelector('.sov-character-list').appendChild(block);
 }
-document.querySelector('.sov-character-list ').onclick=(event)=>{
-    number=parseInt((event.target.className));
-    number=`${number+50}`;
+document.querySelector('.sov-character-list ').onclick = (event) => {
+  number = parseInt((event.target.className));
+  number = `${number + 50}`;
 
-    const xhttp= new XMLHttpRequest();
+  httpRequest('GET', `https://anapioficeandfire.com/api/characters/${number}`)
 
-xhttp.onreadystatechange=function(){
-    if (this.readyState===4&&this.status===200){
-        myFunction(JSON.parse(this.responseText) )
+  function httpRequest(method, url) {
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        myFunction(JSON.parse(this.responseText))
+      }
     }
-}
-xhttp.open('GET',`https://anapioficeandfire.com/api/characters/${number}`);
-xhttp.setRequestHeader("Content-Type","text/plain;charset=UTF-8");
-xhttp.send();
 
-function myFunction(data){
-   document.querySelector('.sov-name').innerHTML=`${data.name}`
-   document.querySelector('.sov-info_character').innerHTML=`
+    xhttp.open(method, url);
+    xhttp.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+    xhttp.send();
+  }
+
+
+  function myFunction(data) {
+    document.querySelector('.sov-name').innerHTML = `${data.name}`
+    document.querySelector('.sov-info_character').innerHTML = `
                 <li class="gender"><span>Gender: </span>${data.gender}</li>
                 <li class="gender"><span>Culture: </span>${data.culture}</li>
                 <li class="gender"><span>Born: </span>${data.born}</li>
@@ -37,5 +43,5 @@ function myFunction(data){
                 <li class="gender"><span>PovBooks: </span>${data.povBooks}</li>
                 <li class="gender"><span>Played By: </span>${data.playedBy}</li>
    `
-}
+  }
 }
