@@ -1,0 +1,60 @@
+html{
+    height: 100%;
+}
+body{
+    height: 99%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container{
+    display: grid;
+    height: 99%;
+    grid-template-areas: 'character info';
+    grid-template-columns: 15% 85%;
+}
+.character{
+padding-top: 10px;
+max-width: 155px;
+min-width: 130px;
+grid-area: character;
+background-color: rgb(80, 80, 80);
+ height: 100%;
+}
+
+.character li{
+    height: 50px;
+    font-size: 20px;
+    padding-left: 5px;
+   /* text-align: center; */
+}
+.character li:hover{
+background-color: aliceblue;
+}
+
+.informatin{
+    grid-area: info;
+     height: 100%;
+}
+
+.name{
+    margin-top: 15px;
+    display: grid;
+    justify-content: center;
+    font-size: 40px;
+}
+.info_character{
+    font-size: 20px;
+    margin: 20px;
+}
+.info_character li{
+    margin-top: 35px;
+}
+span{
+    font-weight: bold;
+}
+.character-list{
+    max-height: 814px;
+    overflow: scroll;
+}
+*::-webkit-scrollbar {
+    display: none;
+}
