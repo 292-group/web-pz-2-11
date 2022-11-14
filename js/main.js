@@ -1,25 +1,44 @@
 let num = 0;
 let arrForCharacter = [];
 
-for (let i = 1; i <= 2100; i++) {
-    arrForCharacter += `<li class='${i}'>Character ${i}</li>`;
+for (let i = 1; i <= 1100; i++) {
+    const http = new XMLHttpRequest();
+    http.onreadystatechange = function() {
+        if (this.status == 200) {
+            HttRequestName(JSON.parse(this.responseText).name, i);
+            // try {
+            //     HttRequestName(JSON.parse(this.responseText).name, i);
+            // } catch (e) {
+            //     HttRequestName("noname", i);
+            // }
+            // JSON.parse(this.responseText).name != "" ? HttRequestName(JSON.parse(this.responseText).name, i) : HttRequestName("noname", i);
+        }
+    }
+    http.open('GET', `https://anapioficeandfire.com/api/characters/${i}`, false);
+    http.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+    http.send();
 }
 
+function HttRequestName(name, i) {
+    arrForCharacter += `<li class="${i}">Character (${name != "noname" ? name : i})</li>`;
+}
+console.log(arrForCharacter);
 document.querySelector('.character-list').innerHTML = (arrForCharacter);
 
 document.querySelector('.character-list ').onclick = (event) => {
     num = parseInt((event.target.className));
+    console.log(num);
 
     const http = new XMLHttpRequest();
 
     http.onreadystatechange = function() {
         if (this.status == 200) HttRequest(JSON.parse(this.responseText))
     }
-    http.open('GET', `https://anapioficeandfire.com/api/characters/${num}`);
+    http.open('GET', `https://anapioficeandfire.com/api/characters/${num}`, false);
     http.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
     http.send();
 
-    HttRequest = (data) => {
+    function HttRequest(data) {
         document.querySelector('.name-info').innerHTML = `${data.name}`
         document.querySelector('.info_character').innerHTML = `
                  <li><span>Gender: </span>${data.gender}</li>
