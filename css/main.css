@@ -1,0 +1,101 @@
+html,
+body,
+div,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li,
+header,
+menu,
+nav {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+ul {
+    list-style: none;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 99%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1;
+    margin: 0;
+}
+
+.main {
+    display: grid;
+    height: 99%;
+    grid-template-areas: 'character info';
+    grid-template-columns: 15% auto;
+}
+
+.character {
+    padding-top: 10px;
+    max-width: 155px;
+    min-width: 130px;
+    grid-area: character;
+    background-color: rgb(80, 70, 116);
+    height: 100%;
+}
+
+.character li {
+    height: 50px;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.character li:hover {
+    background-color: black;
+    color: wheat;
+}
+
+.info {
+    grid-area: info;
+    height: 100%;
+}
+
+.name-info {
+    margin-top: 15px;
+    display: grid;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.info_character {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.info_character li {
+    margin-top: 35px;
+}
+
+span {
+    font-weight: bold;
+}
+
+.character-list {
+    max-height: 814px;
+    overflow: scroll;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
